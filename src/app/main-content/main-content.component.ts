@@ -6,8 +6,8 @@ declare var Chart: any;
 @Component({
   selector: 'app-main-content',
   imports: [],
-  templateUrl: './main-content.html',
-  styleUrl: './main-content.css'
+  templateUrl: './main-content.component.html',
+  styleUrl: './main-content.component.css'
 })
 export class MainContentComponent implements AfterViewInit {
 
