@@ -26,7 +26,9 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/chart.js/dist/chart.umd.js",
+              "public/color-modes.js"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
