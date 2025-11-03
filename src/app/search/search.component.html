@@ -1,0 +1,30 @@
+<div class="p-3">
+  <h2>Buscar y Actualizar</h2>
+  <div class="mb-3">
+    <label class="form-label">Código</label>
+    <input class="form-control" [(ngModel)]="query" placeholder="Código (ej. A001)" />
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary me-2" (click)="search()">Buscar</button>
+    <a routerLink="/items" class="btn btn-outline-secondary">Volver al listado</a>
+  </div>
+
+  <div *ngIf="message" class="mb-2"><div class="alert alert-info">{{ message }}</div></div>
+
+  <div *ngIf="found">
+    <h4>Editar Ítem</h4>
+    <div class="mb-2">
+      <label class="form-label">Nombre</label>
+      <input placeholder="Nombre" class="form-control" [(ngModel)]="found.name" />
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Código</label>
+      <input placeholder="Codigo" class="form-control" [(ngModel)]="found.code" />
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Descripción</label>
+      <textarea placeholder="Descripción" class="form-control" rows="3" [(ngModel)]="found.description"></textarea>
+    </div>
+    <button class="btn btn-success" (click)="update()">Actualizar</button>
+  </div>
+</div>

@@ -1,13 +1,15 @@
-import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 declare var Chart: any;
 
 @Component({
+  standalone: true,
   selector: 'app-main-content',
-  imports: [],
+  imports: [CommonModule, RouterModule],
   templateUrl: './main-content.component.html',
-  styleUrl: './main-content.component.css'
+  styleUrls: ['./main-content.component.css']
 })
 export class MainContentComponent implements AfterViewInit {
 

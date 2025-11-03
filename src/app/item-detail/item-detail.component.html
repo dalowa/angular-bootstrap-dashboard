@@ -1,0 +1,15 @@
+<div class="item-modal-backdrop" (click)="onClose()">
+  <div class="item-modal" (click)="$event.stopPropagation()">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h5>Detalle: {{ item?.name }}</h5>
+      <button class="btn btn-sm btn-outline-secondary" (click)="onClose()">Cerrar</button>
+    </div>
+    <div *ngIf="item; else noItem">
+      <p><strong>Código:</strong> {{ item.code }}</p>
+      <p><strong>Descripción:</strong> {{ item.description }}</p>
+    </div>
+    <ng-template #noItem>
+      <div class="alert alert-warning">Ítem no seleccionado.</div>
+    </ng-template>
+  </div>
+</div>

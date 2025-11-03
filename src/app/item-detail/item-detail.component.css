@@ -1,0 +1,30 @@
+.item-modal-backdrop {
+	position: fixed;
+	inset: 0; /* top:0; right:0; bottom:0; left:0 */
+	background: rgba(0,0,0,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1050; /* above normal content */
+}
+
+.item-modal {
+	background: #fff;
+	color: #000; /* force black text inside modal */
+	border-radius: 0.5rem;
+	padding: 1rem 1.25rem;
+	max-width: 720px;
+	width: 90%;
+	box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+	z-index: 1060;
+	max-height: 85vh;
+	overflow: auto;
+}
+
+/* small responsive tweaks */
+@media (min-width: 576px) {
+	.item-modal { width: 600px; }
+}
+
+/* ensure inner clicks don't bubble to backdrop (handled in template) */
+.item-modal :where(button, a) { cursor: pointer; }

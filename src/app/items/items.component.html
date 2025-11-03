@@ -1,0 +1,39 @@
+<div class="items-list p-3">
+  <div class="d-flex justify-content-between mb-2">
+    <h2>Listado de Ítems</h2>
+    <a routerLink="/search" class="btn btn-sm btn-outline-primary">Buscar / Actualizar</a>
+  </div>
+
+  <ng-template #detailTemplate>
+    <app-item-detail [item]="selectedItem" (close)="closeDetail()"></app-item-detail>
+  </ng-template>
+
+  <ng-container *ngIf="items$ | async as items; else loading">
+    <div *ngIf="items?.length; else empty">
+      <ul class="list-group">
+        <li *ngFor="let it of items" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong [ngClass]="{'text-primary': it.id===selectedItem?.id}">{{ it.name }}</strong>
+          <div class="text-muted">Código: {{ it.code }}</div>
+        </div>
+        <div>
+          <button class="btn btn-sm btn-outline-secondary me-2" (click)="openDetail(it)">Ver detalle</button>
+          <a class="btn btn-sm btn-outline-info" [routerLink]="['/search']" [queryParams]="{code: it.code}">Editar</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="alert alert-secondary">Cargando ítems...</div>
+  </ng-template>
+
+  <ng-template #empty>
+    <div class="alert alert-info">No hay ítems para mostrar</div>
+  </ng-template>
+
+  <ng-container *ngIf="selectedItem">
+    <ng-container *ngTemplateOutlet="detailTemplate"></ng-container>
+  </ng-container>
+</div>
